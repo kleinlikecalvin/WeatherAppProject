@@ -58,6 +58,27 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-geolocation");
 button.addEventListener("click", getCurrentPosition);
 
+/*function convertToFarHigh(event) {
+  event.preventDefault();
+
+  let cityTemp = document.querySelector("#high-temp");
+  cityTemp.innerHTML = `${Math.round((24 * 9) / 5 + 32)}°F`;
+
+  let tempButton = document.querySelector(".temperature-button");
+  tempButton.innerHTML = `°C`;
+}
+
+let tempConversion = document.querySelector(".temperature-button");
+tempConversion.addEventListener("click", convertToFar);*/
+
+function changeHighFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#high-temp");
+  temperature.innerHTML = `${Math.round((24 * 9) / 5 + 32)}°F`;
+}
+var changeDegrees = document.querySelector("#fahrenheit-a");
+changeDegrees.addEventListener("click", changeHighFahrenheit);
+
 let now = new Date();
 let currentDate = document.querySelector("#current-date");
 let currentTime = document.querySelector("#current-time");
