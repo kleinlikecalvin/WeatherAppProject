@@ -20,6 +20,7 @@ function getCity(response) {
   ).innerHTML = Math.round(response.data.main.temp) + "°C");
   let lowTempCelsDefault = (document.querySelector("#low-temp").innerHTML =
     Math.round(response.data.main.temp_min) + "°C");
+  let icons = document.querySelector("#forecast-icons").setAttribute("src", "http://openweathermap.org/img/wn/"+ response.data.weather[0]icon + "@2x.png")
 }
 
 function searchBar(event) {
@@ -88,3 +89,5 @@ currentDate.innerHTML = month + " " + date;
 currentTime.innerHTML = hours + ":" + minutes;
 currentDateHigh.innerHTML = month + " " + date;
 currentDateLow.innerHTML = month + " " + date;
+
+
