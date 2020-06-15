@@ -58,61 +58,30 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-geolocation");
 button.addEventListener("click", getCurrentPosition);
 
-/*function changeHighFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#high-temp");
-  temperature.innerHTML = Math.round((24 * 9) / 5 + 32) + "°F";
-}
-var changeDegrees = document.querySelector("#fahrenheit-a");
-changeDegrees.addEventListener("click", changeHighFahrenheit);*/
-
-function changeHighCelsius(event) {
+function changeCelsius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#high-temp");
   temperature.innerHTML = Math.round(response.data.main.temp_max) + "°C";
+  let temperature = document.querySelector("#current-temp");
+  temperature.innerHTML = Math.round(response.data.main.temp) + "°C";
+  let temperature = document.querySelector("#low-temp");
+  temperature.innerHTML = Math.round(response.data.main.temp_min) + "°C";
 }
 var changeDegrees = document.querySelector("#celsius-a");
 changeDegrees.addEventListener("click", changeHighCelsius);
 
-function changeHighFahrenheit(event) {
+function changeFahrenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#high-temp");
+  temperature.innerHTML = Math.round((24 * 9) / 5 + 32) + "°F";
+  let temperature = document.querySelector("#current-temp");
+  temperature.innerHTML =
+    Math.round(response.data.main.temp(24 * 9) / 5 + 32) + "°F";
+  let temperature = document.querySelector("#low-temp");
   temperature.innerHTML = Math.round((24 * 9) / 5 + 32) + "°F";
 }
 var changeDegrees = document.querySelector("#fahrenheit-a");
 changeDegrees.addEventListener("click", changeHighFahrenheit);
-
-function changeCurrentCelsius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#current-temp");
-  temperature.innerHTML = Math.round(response.data.main.temp_max) + "°C";
-}
-var changeDegrees = document.querySelector("#celsius-a");
-changeDegrees.addEventListener("click", changeCurrentCelsius);
-
-function changeCurrentFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#current-temp");
-  temperature.innerHTML = Math.round((24 * 9) / 5 + 32) + "°F";
-}
-var changeDegrees = document.querySelector("#fahrenheit-a");
-changeDegrees.addEventListener("click", changeCurrentFahrenheit);
-
-function changeLowCelsius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#low-temp");
-  temperature.innerHTML = Math.round(response.data.main.temp_max) + "°C";
-}
-var changeDegrees = document.querySelector("#celsius-a");
-changeDegrees.addEventListener("click", changeLowCelsius);
-
-function changeLowFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#low-temp");
-  temperature.innerHTML = Math.round((24 * 9) / 5 + 32) + "°F";
-}
-var changeDegrees = document.querySelector("#fahrenheit-a");
-changeDegrees.addEventListener("click", changeLowFahrenheit);
 
 let now = new Date();
 let currentDate = document.querySelector("#current-date");
