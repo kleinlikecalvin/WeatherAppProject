@@ -1,6 +1,7 @@
 var apiKey = "653f09d54f4697e3cc7833c0f0cc1a51";
 
 function search(response) {
+  console.log(response);
   let city = document.querySelector("#search-box").value;
   let apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -20,14 +21,14 @@ function getCity(response) {
   ).innerHTML = Math.round(response.data.main.temp) + "°C");
   let lowTempCelsDefault = (document.querySelector("#low-temp").innerHTML =
     Math.round(response.data.main.temp_min) + "°C");
-  let icons = document
-    .querySelector("#forecast-icons")
-    .setAttribute(
-      "src",
-      "http://openweathermap.org/img/wn/" +
-        response.data.weather[0].icon +
-        "@2x.png"
-    );
+  let icons = document.querySelector("#forecast-icons");
+  icons.setAttribute =
+    ("src",
+    "http://openweathermap.org/img/wn/" +
+      response.data.weather[0].icon +
+      "@2x.png");
+  let description = document.querySelector("#forecast-icons");
+  (description.setAttribute = "alt"), response.data.weather[0].description;
 }
 
 function searchBar(event) {
