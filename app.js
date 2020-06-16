@@ -53,7 +53,7 @@ function getCity(response) {
   iconCurrentDescription.innerHTML = response.data.weather[0].description;
   iconCurrent.setAttribute("alt", response.data.weather[0].description);
 }
-function searchBar(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-box");
   city.innerHTML = city.value;
@@ -67,7 +67,7 @@ function searchBar(event) {
 }
 
 let form = document.querySelector("#search-city-container-row");
-form.addEventListener("submit", searchBar);
+form.addEventListener("submit", handleSubmit);
 
 function showPosition(position) {
   let lat = position.coords.latitude;
