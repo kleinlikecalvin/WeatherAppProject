@@ -74,3 +74,5 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current-geolocation");
 button.addEventListener("click", getCurrentPosition);
+
+function changeIcons() {}
