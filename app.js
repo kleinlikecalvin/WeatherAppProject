@@ -31,21 +31,10 @@ currentDateLow.innerHTML = month + " " + date;
 
 var apiKey = "653f09d54f4697e3cc7833c0f0cc1a51";
 
-function search(response) {
-  console.log(response);
-  let city = document.querySelector("#search-box");
-  city.innerHTML = city.value;
-  let apiUrl =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&appid=" +
-    apiKey +
-    "&units=metric";
-  axios.get(`${apiUrl}`).then(getCity);
-}
 function getCity(response) {
-  let cityName = document.querySelector("#current-city");
-  cityName.innerHTML = response.data.name;
+  console.log(response);
+  let cityName = (document.querySelector("#current-city").innerHTML =
+    response.data.name);
   let highTempCelsDefault = (document.querySelector("#high-temp").innerHTML =
     Math.round(response.data.main.temp_max) + "°C");
   let currentTempCelsDefault = (document.querySelector(
@@ -53,11 +42,6 @@ function getCity(response) {
   ).innerHTML = Math.round(response.data.main.temp) + "°C");
   let lowTempCelsDefault = (document.querySelector("#low-temp").innerHTML =
     Math.round(response.data.main.temp_min) + "°C");
-  let currentDayDescription = document.querySelector("#current-icon");
-  currentDayDescription.setAttribute(
-    "alt",
-    response.data.weather[0].description
-  );
   let iconCurrent = document.querySelector("#current-icon");
   iconCurrent.setAttribute(
     "src",
@@ -66,6 +50,21 @@ function getCity(response) {
       "@2x.png"
   );
 }
+function searchBar(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-box");
+  city.innerHTML = city.value;
+  let apiUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city.value +
+    "&appid=" +
+    apiKey +
+    "&units=metric";
+  axios.get(`${apiUrl}`).then(getCity);
+}
+
+let form = document.querySelector("#search-city-container-row");
+form.addEventListener("submit", searchBar);
 
 function showPosition(position) {
   let lat = position.coords.latitude;
