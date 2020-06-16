@@ -49,6 +49,9 @@ function getCity(response) {
       response.data.weather[0].icon +
       "@2x.png"
   );
+  let iconCurrentDescription = document.querySelector("#current-icon");
+  iconCurrentDescription.innerHTML = response.data.weather[0].description;
+  iconCurrent.setAttribute("alt", response.data.weather[0].description);
 }
 function searchBar(event) {
   event.preventDefault();
