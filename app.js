@@ -44,8 +44,8 @@ function search(response) {
   axios.get(`${apiUrl}`).then(getCity);
 }
 function getCity(response) {
-  let cityName = (document.querySelector("#current-city").innerHTML =
-    response.data.name);
+  let cityName = document.querySelector("#current-city");
+  cityName.innerHTML = response.data.name;
   let highTempCelsDefault = (document.querySelector("#high-temp").innerHTML =
     Math.round(response.data.main.temp_max) + "°C");
   let currentTempCelsDefault = (document.querySelector(
@@ -53,6 +53,18 @@ function getCity(response) {
   ).innerHTML = Math.round(response.data.main.temp) + "°C");
   let lowTempCelsDefault = (document.querySelector("#low-temp").innerHTML =
     Math.round(response.data.main.temp_min) + "°C");
+  let currentDayDescription = document.querySelector("#current-icon");
+  currentDayDescription.setAttribute(
+    "alt",
+    response.data.weather[0].description
+  );
+  let iconCurrent = document.querySelector("#current-icon");
+  iconCurrent.setAttribute(
+    "src",
+    "http://openweathermap.org/img/wn/" +
+      response.data.weather[0].icon +
+      "@2x.png"
+  );
 }
 
 function showPosition(position) {
@@ -74,5 +86,3 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current-geolocation");
 button.addEventListener("click", getCurrentPosition);
-
-function changeIcons() {}
