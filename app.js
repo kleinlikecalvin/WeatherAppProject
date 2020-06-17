@@ -104,6 +104,8 @@ function displayFahrTemp(event) {
   let highTempCelsDefault = document.querySelector("#high-temp");
   let currentTempCelsDefault = document.querySelector("#current-temp");
   let lowTempCelsDefault = document.querySelector("#low-temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(fahrTempHigh) + "°F";
   currentTempCelsDefault.innerHTML = Math.round(fahrTempCurrent) + "°F";
   lowTempCelsDefault.innerHTML = Math.round(fahrTempLow) + "°F";
@@ -116,6 +118,8 @@ function displayCelTemp(event) {
   let highTempCelsDefault = document.querySelector("#high-temp");
   let currentTempCelsDefault = document.querySelector("#current-temp");
   let lowTempCelsDefault = document.querySelector("#low-temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(celTempHigh) + "°C";
   currentTempCelsDefault.innerHTML = Math.round(celTempCurrent) + "°C";
   lowTempCelsDefault.innerHTML = Math.round(celTempLow) + "°C";

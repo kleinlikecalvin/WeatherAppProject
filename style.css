@@ -58,10 +58,12 @@
 #celsius-a {
   text-decoration: none;
   color: #212121;
+  cursor: default;
 }
 #fahrenheit-a {
   text-decoration: none;
   color: #212121;
+  cursor: default;
 }
 #celsius-a:hover {
   color: #f8d2ae;
