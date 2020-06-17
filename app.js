@@ -110,3 +110,15 @@ function displayFahrTemp(event) {
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-a");
 fahrenheitLink.addEventListener("click", displayFahrTemp);
+
+function displayCelTemp(event) {
+  event.preventDefault();
+  let highTempCelsDefault = document.querySelector("#high-temp");
+  let currentTempCelsDefault = document.querySelector("#current-temp");
+  let lowTempCelsDefault = document.querySelector("#low-temp");
+  highTempCelsDefault.innerHTML = Math.round(celTempHigh) + "°C";
+  currentTempCelsDefault.innerHTML = Math.round(celTempCurrent) + "°C";
+  lowTempCelsDefault.innerHTML = Math.round(celTempLow) + "°C";
+}
+let celsiusLink = document.querySelector("#celsius-a");
+celsiusLink.addEventListener("click", displayCelTemp);
