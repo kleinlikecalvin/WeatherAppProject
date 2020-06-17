@@ -52,6 +52,9 @@ function getCity(response) {
   let iconCurrentDescription = document.querySelector("#current-icon");
   iconCurrentDescription.innerHTML = response.data.weather[0].description;
   iconCurrent.setAttribute("alt", response.data.weather[0].description);
+  celTempHigh = response.data.main.temp_max;
+  celTempCurrent = response.data.main.temp;
+  celTempLow = response.data.main.temp_min;
 }
 function handleSubmit(event) {
   event.preventDefault();
@@ -89,16 +92,21 @@ function getCurrentPosition() {
 let button = document.querySelector("#current-geolocation");
 button.addEventListener("click", getCurrentPosition);
 
+let celTempHigh = null;
+let celTempCurrent = null;
+let celTempLow = null;
+
 function displayFahrTemp(event) {
   event.preventDefault();
-  let fahrTemp = Math.round((14 * 9) / 5 + 32);
+  let fahrTempHigh = (celTempHigh * 9) / 5 + 32;
+  let fahrTempCurrent = (celTempCurrent * 9) / 5 + 32;
+  let fahrTempLow = (celTempLow * 9) / 5 + 32;
   let highTempCelsDefault = document.querySelector("#high-temp");
   let currentTempCelsDefault = document.querySelector("#current-temp");
   let lowTempCelsDefault = document.querySelector("#low-temp");
-  highTempCelsDefault.innerHTML = fahrTemp + "°F";
-  currentTempCelsDefault = fahrTemp + "°F";
-  lowTempCelsDefault = fahrTemp + "°F";
-  alert(fahrTemp);
+  highTempCelsDefault.innerHTML = Math.round(fahrTempHigh) + "°F";
+  currentTempCelsDefault.innerHTML = Math.round(fahrTempCurrent) + "°F";
+  lowTempCelsDefault.innerHTML = Math.round(fahrTempLow) + "°F";
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-a");
 fahrenheitLink.addEventListener("click", displayFahrTemp);
