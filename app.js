@@ -88,3 +88,17 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current-geolocation");
 button.addEventListener("click", getCurrentPosition);
+
+function displayFahrTemp(event) {
+  event.preventDefault();
+  let fahrTemp = Math.round((14 * 9) / 5 + 32);
+  let highTempCelsDefault = document.querySelector("#high-temp");
+  let currentTempCelsDefault = document.querySelector("#current-temp");
+  let lowTempCelsDefault = document.querySelector("#low-temp");
+  highTempCelsDefault.innerHTML = fahrTemp + "°F";
+  currentTempCelsDefault = fahrTemp + "°F";
+  lowTempCelsDefault = fahrTemp + "°F";
+  alert(fahrTemp);
+}
+let fahrenheitLink = document.querySelector("#fahrenheit-a");
+fahrenheitLink.addEventListener("click", displayFahrTemp);
