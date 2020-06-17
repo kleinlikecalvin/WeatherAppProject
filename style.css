@@ -30,7 +30,7 @@
   margin: 0 auto;
   margin-left: 12px;
   width: 20%;
-  background: #ffdd00;
+  background: #ec6e4c;
   color: #212121;
   padding: 5px;
   border: 1px solid #ace0f9;
@@ -64,10 +64,10 @@
   color: #212121;
 }
 #celsius-a:hover {
-  color: #ffdd00;
+  color: #ec6e4c;
 }
 #fahrenheit-a:hover {
-  color: #ffdd00;
+  color: #ec6e4c;
 }
 #current-geolocation-row {
   padding: 10px;
@@ -75,7 +75,7 @@
 #current-geolocation {
   display: inline-block;
   margin: 0 auto;
-  background: #ffdd00;
+  background: #ec6e4c;
   color: #212121;
   padding: 5px;
   border: 1px solid #ace0f9;
@@ -98,7 +98,7 @@
 }
 #high-container:hover {
   transform: scale(1.2);
-  border: 2px solid #ffdd00;
+  border: 2px solid #ec6e4c;
   z-index: 3;
 }
 #high {
@@ -162,14 +162,14 @@ hr {
 #current-container {
   padding: 4px;
   background: #abecd6;
-  border-left: 2px solid #ffdd00;
-  border-right: 2px solid #ffdd00;
+  border-left: 2px solid #ec6e4c;
+  border-right: 2px solid #ec6e4c;
   transition: transform 0.2s;
   font-size: 20px;
 }
 #current-container:hover {
   transform: scale(1.2);
-  border: 2px solid #ffdd00;
+  border: 2px solid #ec6e4c;
   z-index: 2;
 }
 #current-date {
@@ -192,7 +192,7 @@ hr {
 }
 #low-container:hover {
   transform: scale(1.2);
-  border: 2px solid #ffdd00;
+  border: 2px solid #ec6e4c;
   z-index: 1;
 }
 #low {
@@ -244,7 +244,7 @@ hr {
 }
 #rise-container {
   position: relative;
-  background-image: linear-gradient(to top, #abecd6 0%, #ffdd00 100%);
+  background-image: linear-gradient(to top, #abecd6 0%, #ec6e4c 100%);
   padding: 0;
   margin: 0 auto;
   margin-left: 7px;
@@ -279,7 +279,7 @@ hr {
 }
 #down-container {
   position: relative;
-  background-image: linear-gradient(to bottom, #abecd6 0%, #ffdd00 100%);
+  background-image: linear-gradient(to bottom, #abecd6 0%, #ec6e4c 100%);
   padding: 0;
   margin: 0 auto;
   margin-right: 7px;
