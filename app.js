@@ -29,18 +29,26 @@ currentTime.innerHTML = hours + ":" + minutes;
 currentDateHigh.innerHTML = month + " " + date;
 currentDateLow.innerHTML = month + " " + date;
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  return `${hours}:${minutes}`;
+}
+
 var apiKey = "653f09d54f4697e3cc7833c0f0cc1a51";
 
 function getCity(response) {
-  console.log(response);
   let cityName = (document.querySelector("#current-city").innerHTML =
     response.data.name);
-  let highTempCelsDefault = (document.querySelector("#high-temp").innerHTML =
+  let highTemp = (document.querySelector("#high-temp").innerHTML =
     Math.round(response.data.main.temp_max) + "°C");
-  let currentTempCelsDefault = (document.querySelector(
-    "#current-temp"
-  ).innerHTML = Math.round(response.data.main.temp) + "°C");
-  let lowTempCelsDefault = (document.querySelector("#low-temp").innerHTML =
+  let currentTemp = (document.querySelector("#current-temp").innerHTML =
+    Math.round(response.data.main.temp) + "°C");
+  let lowTemp = (document.querySelector("#low-temp").innerHTML =
     Math.round(response.data.main.temp_min) + "°C");
   let iconCurrent = document.querySelector("#current-icon");
   iconCurrent.setAttribute(
@@ -56,6 +64,26 @@ function getCity(response) {
   celTempCurrent = response.data.main.temp;
   celTempLow = response.data.main.temp_min;
 }
+
+function displayForecast(response) {
+  console.log(response);
+  let forecastElement = document.querySelector("#forecastRow");
+  forecastElement.innerHTML = null;
+  //let forecast = forecast.data.list[index];
+  for (let index = 0; index < 6; index++) {
+    forcast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2" id="forecast-container">
+      ${formatHours(response.data.list.dt * 1000)}
+      <br/>
+      <img src="http://openweathermap.org/img/wn/${
+        response.weather[0].icon
+      }@2x.png" alt="" id="forecast-icons"/>
+      <br/>
+      ${Math.round(forecast.main.temp)}°C
+      `;
+  }
+}
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-box");
@@ -67,6 +95,13 @@ function handleSubmit(event) {
     apiKey +
     "&units=metric";
   axios.get(`${apiUrl}`).then(getCity);
+  let forecastApiUrl =
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city.value +
+    "&appid=" +
+    apiKey +
+    "&units=metric";
+  axios.get(`${forecastApiUrl}`).then(displayForecast);
 }
 
 let form = document.querySelector("#search-city-container-row");
