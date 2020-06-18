@@ -219,7 +219,7 @@ hr {
   border: 2px solid #ace0f9;
   border-radius: 4px;
 }
-#forecast-container {
+/*#forecast-container {
   background: #ace0f9;
   padding: 10px;
   text-align: center;
@@ -229,7 +229,7 @@ hr {
   position: relative;
   margin: 0 auto;
   padding: 0px;
-}
+}*/
 #rise-down-container-row {
   margin-top: 10px;
   margin-left: 0px;
@@ -240,7 +240,7 @@ hr {
   border: 2px solid #ace0f9;
   border-radius: 4px;
 }
-#rise-down-row {
+/*#rise-down-row {
   margin-top: 0px;
   padding: 0px;
 }
@@ -287,7 +287,7 @@ hr {
   margin-right: 7px;
   text-align: center;
   font-size: 16px;
-}
+}*/
 footer {
   text-align: center;
 }

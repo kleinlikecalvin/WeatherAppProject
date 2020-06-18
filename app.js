@@ -65,7 +65,7 @@ function getCity(response) {
   celTempLow = response.data.main.temp_min;
 }
 
-function displayForecast(response) {
+/*function displayForecast(response) {
   console.log(response);
   let forecastElement = document.querySelector("#forecastRow");
   forecastElement.innerHTML = null;
@@ -83,7 +83,7 @@ function displayForecast(response) {
       ${Math.round(forecast.main.temp)}°C
       `;
   }
-}
+}*/
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-box");
@@ -95,13 +95,13 @@ function handleSubmit(event) {
     apiKey +
     "&units=metric";
   axios.get(`${apiUrl}`).then(getCity);
-  let forecastApiUrl =
+  /*apiUrl =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city.value +
     "&appid=" +
     apiKey +
     "&units=metric";
-  axios.get(`${forecastApiUrl}`).then(displayForecast);
+  axios.get(`${forecastApiUrl}`).then(displayForecast);*/
 }
 
 let form = document.querySelector("#search-city-container-row");
