@@ -219,7 +219,18 @@ hr {
   border: 2px solid #ace0f9;
   border-radius: 4px;
 }
-/*#forecast-container {
+
+#forecast-row {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #ace0f9;
+  border-radius: 4px;
+}
+#forecast-container {
   background: #ace0f9;
   padding: 10px;
   text-align: center;
@@ -229,7 +240,7 @@ hr {
   position: relative;
   margin: 0 auto;
   padding: 0px;
-}*/
+}
 #humidity-row {
   margin-top: 10px;
   margin-left: 0px;
@@ -241,7 +252,18 @@ hr {
   border-radius: 4px;
   text-align: center;
 }
-/*#rise-down-row {
+/*#rise-down-container-row {
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  border: 2px solid #ace0f9;
+  border-radius: 4px;
+  text-align: center;
+}
+#rise-down-row {
   margin-top: 0px;
   padding: 0px;
 }

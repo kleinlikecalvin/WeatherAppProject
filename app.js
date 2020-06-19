@@ -63,10 +63,10 @@ function getCity(response) {
 }
 
 /*function displayForecast(response) {
-  console.log(response);
-  let forecastElement = document.querySelector("#forecastRow");
-  forecastElement.innerHTML = null;
-  //let forecast = forecast.data.list[index];
+  let forecastElement = document.querySelector("#forecast-row");
+  //forecastElement.innerHTML = null;
+  console.log(forecast.data.list);
+  let forecast = null;
   for (let index = 0; index < 6; index++) {
     forcast = response.data.list[index];
     forecastElement.innerHTML += `
@@ -92,13 +92,13 @@ function handleSubmit(event) {
     apiKey +
     "&units=metric";
   axios.get(`${apiUrl}`).then(getCity);
-  /*apiUrl =
+  apiUrl =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     city.value +
     "&appid=" +
     apiKey +
     "&units=metric";
-  axios.get(`${forecastApiUrl}`).then(displayForecast);*/
+  axios.get(`${apiUrl}`); //.then(displayForecast);
 }
 
 let form = document.querySelector("#search-city-container-row");
@@ -114,7 +114,7 @@ function showPosition(position) {
     lon +
     "&units=metric&appid=" +
     apiKey;
-  axios.get(`${apiUrl}`).then(getCity);
+  axios.get(`${apiUrl}`).then(getCity); //.then(displayForecast);
 }
 
 function getCurrentPosition() {
