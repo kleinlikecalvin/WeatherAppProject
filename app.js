@@ -1,43 +1,36 @@
-let now = new Date();
-let currentDate = document.querySelector("#current-date");
-let currentTime = document.querySelector("#current-time");
-let currentDateHigh = document.querySelector("#current-date-high");
-let currentDateLow = document.querySelector("#current-date-low");
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = "0" + minutes;
-}
-currentDate.innerHTML = month + " " + date;
-currentTime.innerHTML = hours + ":" + minutes;
-currentDateHigh.innerHTML = month + " " + date;
-currentDateLow.innerHTML = month + " " + date;
-
-function formatHours(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+function displayTimeDate(timestamp) {
+  let now = new Date();
+  let currentDate = document.querySelector("#current-date");
+  let currentTime = document.querySelector("#current-time");
+  let currentDateHigh = document.querySelector("#current-date-high");
+  let currentDateLow = document.querySelector("#current-date-low");
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  let date = now.getDate();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
-  return `${hours}:${minutes}`;
+  currentDate.innerHTML = month + " " + date;
+  currentTime.innerHTML = hours + ":" + minutes;
+  currentDateHigh.innerHTML = month + " " + date;
+  currentDateLow.innerHTML = month + " " + date;
 }
+displayTimeDate();
 
 var apiKey = "653f09d54f4697e3cc7833c0f0cc1a51";
 
@@ -63,6 +56,10 @@ function getCity(response) {
   celTempHigh = response.data.main.temp_max;
   celTempCurrent = response.data.main.temp;
   celTempLow = response.data.main.temp_min;
+  let humidity = document.querySelector("#humidity-container");
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
+  let wind = document.querySelector("#wind-speed-container");
+  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)}`;
 }
 
 /*function displayForecast(response) {

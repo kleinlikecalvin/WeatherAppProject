@@ -209,7 +209,7 @@ hr {
   text-align: right;
   font-size: 12px;
 }
-#forecastRow {
+#wind-speed-row {
   margin: 0 auto;
   margin-top: 10px;
   margin-left: 0px;
@@ -230,7 +230,7 @@ hr {
   margin: 0 auto;
   padding: 0px;
 }*/
-#rise-down-container-row {
+#humidity-row {
   margin-top: 10px;
   margin-left: 0px;
   margin-right: 0px;
@@ -239,6 +239,7 @@ hr {
   padding-right: 0;
   border: 2px solid #ace0f9;
   border-radius: 4px;
+  text-align: center;
 }
 /*#rise-down-row {
   margin-top: 0px;
