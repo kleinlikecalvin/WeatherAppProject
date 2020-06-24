@@ -81,9 +81,9 @@ function getCity(response) {
   let iconCurrentDescription = document.querySelector("#current-icon");
   iconCurrentDescription.innerHTML = response.data.weather[0].description;
   iconCurrent.setAttribute("alt", response.data.weather[0].description);
-  celTempHigh = response.data.main.temp_max;
-  celTempCurrent = response.data.main.temp;
-  celTempLow = response.data.main.temp_min;
+  celsTempHigh = response.data.main.temp_max;
+  celsTempCurrent = response.data.main.temp;
+  celsTempLow = response.data.main.temp_min;
   let humidity = document.querySelector("#humidity-container");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
   let wind = document.querySelector("#wind-speed-container");
@@ -166,15 +166,15 @@ button.addEventListener("click", getCurrentPosition);
 let celsTempHigh = null;
 let celsTempCurrent = null;
 let celsTempLow = null;
+let highTempCelsDefault = document.querySelector("#high-temp");
+let currentTempCelsDefault = document.querySelector("#current-temp");
+let lowTempCelsDefault = document.querySelector("#low-temp");
 
 function displayFahrTemp(event) {
   event.preventDefault();
   let fahrTempHigh = (celsTempHigh * 9) / 5 + 32;
   let fahrTempCurrent = (celsTempCurrent * 9) / 5 + 32;
   let fahrTempLow = (celsTempLow * 9) / 5 + 32;
-  let highTempCelsDefault = document.querySelector("#high-temp");
-  let currentTempCelsDefault = document.querySelector("#current-temp");
-  let lowTempCelsDefault = document.querySelector("#low-temp");
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(fahrTempHigh) + "°F";
@@ -184,11 +184,8 @@ function displayFahrTemp(event) {
 let fahrenheitLink = document.querySelector("#fahrenheit-a");
 fahrenheitLink.addEventListener("click", displayFahrTemp);
 
-function displayCelTemp(event) {
+function displayCelsTemp(event) {
   event.preventDefault();
-  let highTempCelsDefault = document.querySelector("#high-temp");
-  let currentTempCelsDefault = document.querySelector("#current-temp");
-  let lowTempCelsDefault = document.querySelector("#low-temp");
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(celsTempHigh) + "°C";
@@ -196,4 +193,4 @@ function displayCelTemp(event) {
   lowTempCelsDefault.innerHTML = Math.round(celsTempLow) + "°C";
 }
 let celsiusLink = document.querySelector("#celsius-a");
-celsiusLink.addEventListener("click", displayCelTemp);
+celsiusLink.addEventListener("click", displayCelsTemp);
