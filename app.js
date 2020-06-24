@@ -159,7 +159,7 @@ function getCurrentPosition() {
 }
 
 let button = document.querySelector("#current-geolocation");
-button.addEventListener("click", getCurrentPosition);
+button.addEventListener("submit", getCurrentPosition);
 
 let celsTempHigh = null;
 let celsTempCurrent = null;
