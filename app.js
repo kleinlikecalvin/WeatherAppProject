@@ -166,24 +166,20 @@ button.addEventListener("click", getCurrentPosition);
 let celsTempHigh = null;
 let celsTempCurrent = null;
 let celsTempLow = null;
-//let celsForecast = [];
 
 function displayFahrTemp(event) {
   event.preventDefault();
   let fahrTempHigh = (celsTempHigh * 9) / 5 + 32;
   let fahrTempCurrent = (celsTempCurrent * 9) / 5 + 32;
   let fahrTempLow = (celsTempLow * 9) / 5 + 32;
-  //let fahrForecast = (celsForecast * 9) / 5 + 32;
   let highTempCelsDefault = document.querySelector("#high-temp");
   let currentTempCelsDefault = document.querySelector("#current-temp");
   let lowTempCelsDefault = document.querySelector("#low-temp");
-  //let fahrForecastDefault = document.querySelector("#forecast-temp");
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(fahrTempHigh) + "°F";
   currentTempCelsDefault.innerHTML = Math.round(fahrTempCurrent) + "°F";
   lowTempCelsDefault.innerHTML = Math.round(fahrTempLow) + "°F";
-  //fahrForecastDefault.innerHTML = Math.round(fahrForecast) + "°F";
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-a");
 fahrenheitLink.addEventListener("click", displayFahrTemp);
@@ -193,13 +189,11 @@ function displayCelTemp(event) {
   let highTempCelsDefault = document.querySelector("#high-temp");
   let currentTempCelsDefault = document.querySelector("#current-temp");
   let lowTempCelsDefault = document.querySelector("#low-temp");
-  //let celsForecastDefault = document.querySelector("#forecast-temp");
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(celsTempHigh) + "°C";
   currentTempCelsDefault.innerHTML = Math.round(celsTempCurrent) + "°C";
   lowTempCelsDefault.innerHTML = Math.round(celsTempLow) + "°C";
-  //celsForecastDefault.innerHTML = Math.round(celsForecast) + "°C";
 }
 let celsiusLink = document.querySelector("#celsius-a");
 celsiusLink.addEventListener("click", displayCelTemp);
