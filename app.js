@@ -83,17 +83,15 @@ function getCity(response) {
   celsTempHigh = response.data.main.temp_max;
   celsTempCurrent = response.data.main.temp;
   celsTempLow = response.data.main.temp_min;
-  //celsForecast = response.data.list[index];
   let humidity = document.querySelector("#humidity-container");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
   let wind = document.querySelector("#wind-speed-container");
   wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)}`;
 }
-
+let forecast = null;
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast-row");
   forecastElement.innerHTML = "";
-  let forecast = null;
   for (let index = 0; index < 6; index++) {
     let forecast = response.data.list[index];
     forecastElement.innerHTML += `
@@ -166,7 +164,6 @@ button.addEventListener("click", getCurrentPosition);
 let celsTempHigh = null;
 let celsTempCurrent = null;
 let celsTempLow = null;
-//let celsForecast = null;
 let highTempCelsDefault = document.querySelector("#high-temp");
 let currentTempCelsDefault = document.querySelector("#current-temp");
 let lowTempCelsDefault = document.querySelector("#low-temp");
@@ -177,7 +174,7 @@ function displayFahrTemp(event) {
   let fahrTempHigh = (celsTempHigh * 9) / 5 + 32;
   let fahrTempCurrent = (celsTempCurrent * 9) / 5 + 32;
   let fahrTempLow = (celsTempLow * 9) / 5 + 32;
-  //let fahrForecast = (celsForecast * 9) / 5 + 32;
+  //let fahrForecast = (forecast * 9) / 5 + 32;
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   highTempCelsDefault.innerHTML = Math.round(fahrTempHigh) + "°F";
@@ -195,7 +192,7 @@ function displayCelsTemp(event) {
   highTempCelsDefault.innerHTML = Math.round(celsTempHigh) + "°C";
   currentTempCelsDefault.innerHTML = Math.round(celsTempCurrent) + "°C";
   lowTempCelsDefault.innerHTML = Math.round(celsTempLow) + "°C";
-  //forecastCelsDefault.innerHTML = Math.round(celsForecast) + "°C";
+  //forecastCelsDefault.innerHTML = Math.round(forecast) + "°C";
 }
 let celsiusLink = document.querySelector("#celsius-a");
 celsiusLink.addEventListener("click", displayCelsTemp);
