@@ -25,10 +25,10 @@ function displayTimeDate(timestamp) {
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
-  currentDate.innerHTML = month + " " + date;
-  currentTime.innerHTML = hours + ":" + minutes;
-  currentDateHigh.innerHTML = month + " " + date;
-  currentDateLow.innerHTML = month + " " + date;
+  currentDate.textContent = month + " " + date;
+  currentTime.textContent = hours + ":" + minutes;
+  currentDateHigh.textContent = month + " " + date;
+  currentDateLow.textContent = month + " " + date;
 }
 
 function formatForecastDateTime(timestamp) {
@@ -62,13 +62,13 @@ var apiKey = "653f09d54f4697e3cc7833c0f0cc1a51";
 
 function getCity(response) {
   displayTimeDate(response.data.dt * 1000);
-  let cityName = (document.querySelector("#current-city").innerHTML =
+  let cityName = (document.querySelector("#current-city").textContent =
     response.data.name);
-  let highTemp = (document.querySelector("#high-temp").innerHTML =
+  let highTemp = (document.querySelector("#high-temp").textContent =
     Math.round(response.data.main.temp_max) + "°C");
-  let currentTemp = (document.querySelector("#current-temp").innerHTML =
+  let currentTemp = (document.querySelector("#current-temp").textContent =
     Math.round(response.data.main.temp) + "°C");
-  let lowTemp = (document.querySelector("#low-temp").innerHTML =
+  let lowTemp = (document.querySelector("#low-temp").textContent =
     Math.round(response.data.main.temp_min) + "°C");
   let iconCurrent = document.querySelector("#current-icon");
   iconCurrent.setAttribute(
@@ -78,25 +78,25 @@ function getCity(response) {
       "@2x.png"
   );
   let iconCurrentDescription = document.querySelector("#current-icon");
-  iconCurrentDescription.innerHTML = response.data.weather[0].description;
+  iconCurrentDescription.textContent = response.data.weather[0].description;
   iconCurrent.setAttribute("alt", response.data.weather[0].description);
   celsTempHigh = response.data.main.temp_max;
   celsTempCurrent = response.data.main.temp;
   celsTempLow = response.data.main.temp_min;
   let humidity = document.querySelector("#humidity-container");
-  humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
+  humidity.textContent = `Humidity: ${response.data.main.humidity}`;
   let wind = document.querySelector("#wind-speed-container");
-  wind.innerHTML = `Wind Speed: ${Math.round(response.data.wind.speed)}`;
+  wind.textContent = `Wind Speed: ${Math.round(response.data.wind.speed)}`;
 }
 let forecast = null;
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast-row");
-  forecastElement.innerHTML = "";
+  forecastElement.textContent = "";
   for (let index = 0; index < 6; index++) {
     let forecast = response.data.list[index];
     forecastElement.innerHTML += `
-    <div class="col-4" id="forecast-container">
-      <span id="forecast-t-d">${formatForecastDateTime(
+    <div class="col-4 forecast-container">
+      <span class="forecast-t-d">${formatForecastDateTime(
         forecast.dt * 1000
       )}</span>
       <br/>
@@ -112,7 +112,7 @@ function displayForecast(response) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-box");
-  city.innerHTML = city.value;
+  city.textContent = city.value;
   let apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city.value +
@@ -175,9 +175,9 @@ function displayFahrTemp(event) {
   let fahrTempLow = (celsTempLow * 9) / 5 + 32;
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  highTempCelsDefault.innerHTML = Math.round(fahrTempHigh) + "°F";
-  currentTempCelsDefault.innerHTML = Math.round(fahrTempCurrent) + "°F";
-  lowTempCelsDefault.innerHTML = Math.round(fahrTempLow) + "°F";
+  highTempCelsDefault.textContent = Math.round(fahrTempHigh) + "°F";
+  currentTempCelsDefault.textContent = Math.round(fahrTempCurrent) + "°F";
+  lowTempCelsDefault.textContent = Math.round(fahrTempLow) + "°F";
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-a");
 fahrenheitLink.addEventListener("click", displayFahrTemp);
@@ -186,9 +186,9 @@ function displayCelsTemp(event) {
   event.preventDefault();
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
-  highTempCelsDefault.innerHTML = Math.round(celsTempHigh) + "°C";
-  currentTempCelsDefault.innerHTML = Math.round(celsTempCurrent) + "°C";
-  lowTempCelsDefault.innerHTML = Math.round(celsTempLow) + "°C";
+  highTempCelsDefault.textContent = Math.round(celsTempHigh) + "°C";
+  currentTempCelsDefault.textContent = Math.round(celsTempCurrent) + "°C";
+  lowTempCelsDefault.textContent = Math.round(celsTempLow) + "°C";
 }
 let celsiusLink = document.querySelector("#celsius-a");
 celsiusLink.addEventListener("click", displayCelsTemp);
