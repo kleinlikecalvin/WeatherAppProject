@@ -3,12 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap"
@@ -24,132 +18,64 @@
   </head>
 
   <body>
-    <div class="main-container">
-      <form id="search-city-container-row">
+    <div class="main-container col">
+      <div class="row" id="city-search-container">
         <input
           type="search"
           name="search"
-          id="search-box"
+          id="search-bar"
           placeholder="What's the weather like in..."
         />
-        <input type="submit" name="submit" id="submit-button" />
-      </form>
+        <button id="submit-button">submit</button>
+      </div>
 
-      <div class="row" id="current-city-row">
-        <div class="col-10" id="current-city-container">
-          <h1 id="current-city">
-            City
-          </h1>
-        </div>
+      <div class="row current-location-button-container">
+        <button id="current-location-button">Search Current Location</button>
+      </div>
 
-        <div class="col-2" id="f-c-a-container">
-          <a href="#" id="celsius-a" class="active">C</a> |
-          <a href="#" id="fahrenheit-a" class="active">F</a>
+      <div class="row current-city-container">
+        <h2 id="current-city">City</h2>
+        <div class="f-c-container">
+          <button id="celsius">C</button> |
+          <button id="fahrenheit">F</button>
         </div>
       </div>
 
-      <div class="row" id="current-geolocation-row">
-        <button id="current-geolocation" type="button">
-          Search Current Location
-        </button>
-      </div>
-
-      <div class="row" id="day-info-row">
-        <div class="col-4" id="high-container">
-          <p id="high">
-            High
-          </p>
-          <p id="current-date-high">
-            June 20
-          </p>
+      <div class="row current-row">
+        <div class="col container">
+          <p class="container-header">High</p>
+          <p class="container-subheader" id="current-date-high">Today</p>
           <hr />
-
-          <div class="row" id="day-icons-temp-row">
-            <div class="col-4" id="day-icons-container">
-              <img
-                src=""
-                alt=""
-                id="current-high-icon"
-                class="current-day-icons"
-              />
-            </div>
-
-            <div class="col-8" id="day-temp-container">
-              <p id="high-temp">
-                °C
-              </p>
-            </div>
-          </div>
+          <p class="temp" id="high-temp"></p>
         </div>
 
-        <div class="col-4" id="current-container">
-          <p id="current-date">
-            Current
-            <br />
-          </p>
-          <p id="current-time">
-            Time
-          </p>
+        <div class="col container">
+          <p class="container-header" id="current-date">Current</p>
+          <p class="container-subheader" id="current-time">Time</p>
           <hr />
-
-          <div class="row" id="day-icons-temp-row">
-            <div class="col-4" id="day-icons-container">
-              <img src="" alt="" id="current-icon" class="current-day-icons" />
-            </div>
-
-            <div class="col-8" id="day-temp-container">
-              <p id="current-temp">
-                °C
-              </p>
-            </div>
-          </div>
+          <p class="temp" id="current-temp"></p>
         </div>
 
-        <div class="col-4" id="low-container">
-          <p id="low">
-            Low
-          </p>
-          <p id="current-date-low">
-            June 20
-          </p>
+        <div class="col container">
+          <p class="container-header">Low</p>
+          <p class="container-subheader" id="current-date-low">Today</p>
           <hr />
-
-          <div class="row" id="day-icons-temp-row">
-            <div class="col-4" id="day-icons-container">
-              <img
-                src=""
-                alt=""
-                id="current-low-icon"
-                class="current-day-icons"
-              />
-            </div>
-
-            <div class="col-8" id="day-temp-container">
-              <p id="low-temp">
-                °C
-              </p>
-            </div>
-          </div>
+          <p class="temp" id="low-temp"></p>
         </div>
       </div>
 
-      <div class="row" id="wind-speed-row">
-        <div class="col-12" id="wind-speed-container"></div>
-      </div>
+      <p class="row" id="humidity-row">Humidity: <span id="humidity"></span></p>
+      <p class="row" id="windspeed-row">
+        Windspeed: <span id="windspeed"></span>
+      </p>
 
-      <div class="row" id="humidity-row">
-        <div class="col-12" id="humidity-container"></div>
-      </div>
-
-      <div class="row" id="forecast-row">
-        <span id="forecast-temp"></span>
-      </div>
+      <div id="forecast-row"></div>
     </div>
     <footer id="footer">
       <a
-        href="https://github.com/streetlightkids/WeatherAppProject"
-        id="gitReposLink"
+        href="https://kleinlikecalvin.github.io/WeatherAppProject/"
         target="_blank"
+        rel="noreferrer noopener"
         >Open-source Code</a
       >
       by Nikki Klein
